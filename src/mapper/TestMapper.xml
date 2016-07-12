@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybaits.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="TestMapper">
+<resultMap id="test" type="Test">
+<result property="widx" column="widx"/>
+<result property="subject" column="subject" />
+<result property="content" column="content" />
+<result property="fileurl" column="fileurl" />
+</resultMap>
+
+<insert id="doWrite" parameterType="Test" useGeneratedKeys="true" keyProperty="widx">
+INSERT INTO test(
+widx, subject, content, fileurl
+) VALUES(
+#{widx}, #{subject}, #{content}, #{fileurl}
+);
+</insert>
+
+<select id="getWrite" parameterType="Test" resultMap="test">
+SELECT widx, subject, content
+FROM test
+WHERE widx = #{widx}
+</select>
+
+<select id="getTestList" parameterType="Test" resultMap="test">
+SELECT widx, subject, content, fileurl
+FROM test
+
+</select>
+
+
+
+</mapper>

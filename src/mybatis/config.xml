@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+    PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>
+	<typeAliases>
+		<!-- Model 클래스의 별칭을 부여한다 -->
+		<typeAlias alias="Test" type="model.Test" />
+	</typeAliases>
+
+	<environments default="development">
+		<environment id="development">
+			<transactionManager type="JDBC" />
+			<!-- MySQL 접속 정보를 지정한다. -->
+			<dataSource type="POOLED">
+				<property name="driver" value="com.mysql.jdbc.Driver" />
+			<!--	<property name="url" value="jdbc:mysql://localhost:3306/potendevelop?characterEncoding=UTF8" />
+			    <property name="username" value="root" />
+				<property name="password" value="root" /> -->
+				<property name="url" value="jdbc:mysql://localhost:3306/potendevelop2?characterEncoding=UTF8" />
+				<property name="username" value="potendevelop2" />
+				<property name="password" value="zxcasdqwe!" />
+				
+			</dataSource>
+		</environment>
+	</environments>
+
+	<mappers>
+		<!-- Impl 클래스를 대체할 Mapper XML의 경로를 지정한다. -->
+		<mapper resource="mapper/TestMapper.xml" />
+	</mappers>
+</configuration>
